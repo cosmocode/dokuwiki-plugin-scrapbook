@@ -65,7 +65,8 @@ class action_plugin_scrapbook extends DokuWiki_Action_Plugin {
             array(
                 'depth' => 1,
                 'pagesonly' => true,
-                'listfiles' => true
+                'listfiles' => true,
+                'firsthead' => true
             ),
             utf8_encodeFN(str_replace(':', '/', $this->getConf('ns')))
         );
@@ -73,7 +74,11 @@ class action_plugin_scrapbook extends DokuWiki_Action_Plugin {
         if(!$data) {
             echo '<div>'.$lang['nothingfound'].'</div>';
         } else foreach($data as $page) {
-            $title = str_replace(array('_', '-'), array(' ', ' - '), noNS($page['id']));
+            if($page['title']) {
+                $title = $page['title'];
+            } else {
+                $title = str_replace(array('_', '-'), array(' ', ' - '), noNS($page['id']));
+            }
             echo '<button data-id="' . hsc($page['id']) . '">' . hsc($title) . '</button>';
         }
     }
