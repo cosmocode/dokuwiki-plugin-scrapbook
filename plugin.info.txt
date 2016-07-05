@@ -1,0 +1,7 @@
+base   scrapbook
+author Andreas Gohr
+email  dokuwiki@cosmocode.de
+date   2016-07-05
+name   scrapbook plugin
+desc   Manage a scrapbook of easy to insert templates
+url    https://www.dokuwiki.org/plugin:scrapbook
