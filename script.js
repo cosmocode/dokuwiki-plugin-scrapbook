@@ -36,7 +36,8 @@ function addBtnActionPlugin_scrapbook($btn, props, edid) {
                 DOKU_BASE + 'doku.php',
                 {
                     id: $el.data('id'),
-                    do: 'export_raw'
+                    do: 'export_raw',
+                    scrapbookinsert: JSINFO.id
                 },
                 function (data) {
                     $el.data('scrap', data);
